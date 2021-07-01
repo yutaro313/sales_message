@@ -1,24 +1,35 @@
-# README
+# 【SalesMessage】
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+今までメールでやりとりをしていた営業とお客様との連絡がスムーズになるアプリケーションです。
 
-Things you may want to cover:
+### サイトテーマ
+- 営業とお客様との連絡をチャットでできる
+- 共有カレンダーで日程調整がスムーズにできる
+- タイムラインを使用し作業の進捗状況を逐一報告することができる
+  例）住宅営業　建築工程で基礎や据付、内装、外構等、工程ごとで完成したら都度タイムラインで経過報告ができる
 
-* Ruby version
+### テーマを選んだ理由
+前職で住宅営業をしていて、特に問題だったことを解決できるアプリケーションを作成したいと思いこのテーマにしました。前職での問題点は3つあり、1つ目が、連絡は原則メールで、メールを見る習慣がないお客様がとても多く、レスポンシブが遅くなってしまうことです。2つ目が、日程を決める際にお互いの都合がわからず、何度もメールのやりとりをしてしまうことです。3つ目が、お客様の家を建築しているのに、お客様自身が建築の進捗状況を把握していないことです。このアプリケーションを使用することで、普段メールを見ない人でもLINEのように連絡を確認することができ、スケジュールもカレンダーに登録することで、一目で空いている日程が把握することができます。さらに、お客様が作業の工程ごとに確認でき、尚且つ完成後作業工程を一から見直すことができます。
 
-* System dependencies
+### ターゲットユーザ
+外部とやりとりがある営業職の方
 
-* Configuration
+### 主な利用シーン
+営業とお客様（取引先）との連絡時
 
-* Database creation
+## 設計書
+作成次第挿入します。
 
-* Database initialization
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1JHY_oXhd3hsPZRkUBMhIlnDg-ekt5EHnzMjkYoWylkM/edit#gid=0
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
