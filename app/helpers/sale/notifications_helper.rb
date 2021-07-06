@@ -1,0 +1,2 @@
+module Sale::NotificationsHelper
+end

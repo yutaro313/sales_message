@@ -1,0 +1,2 @@
+module Sale::ProfilesHelper
+end
