@@ -29,7 +29,7 @@ Natural Languageを利用して、お客様のチャットの返答がポジテ�
 https://app.diagrams.net/#G1PgcnhTLaKuIUMJQikiHi2ZEdiAAiaUDl
 ### テーブル定義書
 https://docs.google.com/spreadsheets/d/1Du-1Gm5DZapxAh5PCxVoeAPuTp0yNDYHIrXnjSFN3_A/edit#gid=0
-### アプリケーション詳細設計　制作中です
+### アプリケーション詳細設計
 https://docs.google.com/spreadsheets/d/1bFPJFSDF4PAATowew5PM76pOE-g67zL5/edit#gid=1370221405
 
 ## チャレンジ要素一覧
