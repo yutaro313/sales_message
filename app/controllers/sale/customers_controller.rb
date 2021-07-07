@@ -1,4 +1,5 @@
 class Sale::CustomersController < ApplicationController
+  
 
   def index
   end
