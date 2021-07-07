@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  devise_for :sales, path: 'sale', controllers: {
+    sessions: 'sale/sessions',
+    passwords: 'sale/passwords'
+  }
+
+  devise_for :customers, path: 'customer', controllers: {
+    sessions: 'customer/sessions',
+    passwords: 'customer/passwords',
+    registrations: 'customer/registrations'
+  }
+
   root to: "customer/homes#top"
   get "/about" => "customer/homes#about"
 
