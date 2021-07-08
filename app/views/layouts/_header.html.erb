@@ -1,0 +1,25 @@
+<header class="m-0">
+  <nav class="navbar navbar-expand bg-light">
+    <div class="container">
+       <% if customer_signed_in? %>
+        <a class="navbar-brand p-3 text-dark" href="/">会社名</a>
+        <% else %>
+        <a class="navbar-brand p-3 text-dark" href="/">Sales Message</a>
+        <% end %>
+        <ul class="navbar-nav ml-auto">
+          <!--お客様のログイン時-->
+          <% if customer_signed_in? %>
+          <!--営業ログイン時-->
+          <% elsif sale_signed_in? %>
+          <!--ログアウト時-->
+          <% else %>
+            <li class="nav-item"><%= link_to 'About', about_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item text-dark nav-link">|</li>
+            <li class="nav-item"><%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item text-dark nav-link">|</li>
+            <li class="nav-item"><%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-dark' %></li>
+          <% end %>
+        </ul>
+    </div>
+  </nav>
+</header>
