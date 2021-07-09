@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  devise_for :sales, path: 'sale', controllers: {
-    sessions: 'sale/sessions',
-    passwords: 'sale/passwords'
+  devise_for :sales, path: 'sales', controllers: {
+    sessions: 'sales/sessions',
+    passwords: 'sales/passwords'
   }
 
-  devise_for :customers, path: 'customer', controllers: {
-    sessions: 'customer/sessions',
-    passwords: 'customer/passwords',
-    registrations: 'customer/registrations'
+  devise_for :customers, path: 'customers', controllers: {
+    sessions: 'customers/sessions',
+    passwords: 'customers/passwords',
+    registrations: 'customers/registrations'
   }
+
+  devise_scope :customer do
+    get '/customers/sign_out' => 'devise/sessions#destroy'
+  end
 
   root to: "customer/homes#top"
   get "/about" => "customer/homes#about"
@@ -20,11 +24,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
     resource :profiles, only: [:show]
     resources :plans
+    resources :notifications, only: [:index]
     resources :posts, only: [:index] do
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
-    resources :notifications, only: [:index]
   end
 
   namespace :sale do

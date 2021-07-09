@@ -4,7 +4,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
 
    # 新規登録後のページ遷移
   def after_sign_up_path_for(resource)
-    customer_customers_path
+    root_path
   end
 
   # before_action :configure_sign_up_params, only: [:create]
