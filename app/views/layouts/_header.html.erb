@@ -1,23 +1,39 @@
 <header class="m-0">
-  <nav class="navbar navbar-expand bg-light">
+  <nav class="navbar navbar-expand bg-light shadow-sm">
     <div class="container">
        <% if customer_signed_in? %>
-        <a class="navbar-brand p-3 text-dark" href="/">会社名</a>
+        <a class="navbar-brand p-3 text-secondary" href="/"><%= current_customer.company_name %></a>
         <% else %>
-        <a class="navbar-brand p-3 text-dark" href="/">Sales Message</a>
+        <a class="navbar-brand p-3 text-secondary" href="/">Sales Message</a>
         <% end %>
         <ul class="navbar-nav ml-auto">
           <!--お客様のログイン時-->
           <% if customer_signed_in? %>
+            <li class="nav-item text-secondary nav-link">こんにちは<span><%= current_customer.name %></span>さん</li>
+            <li class="nav-item text-secondary nav-link">　　</li>
+            <li class="nav-item"><%= link_to '通知', customer_notifications_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item text-secondary nav-link">|</li>
+            <li class="nav-item"><%= link_to 'チャット', customer_messages_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item text-secondary nav-link">|</li>
+            <li class="nav-item"><%= link_to 'カレンダー', customer_plans_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item text-secondary nav-link">|</li>
+            <li class="nav-item"><%= link_to 'タイムライン', customer_posts_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item text-secondary nav-link">|</li>
+            <li class="nav-item"><%= link_to 'ログアウト', destroy_customer_session_path, class: 'nav-link text-secondary' %></li>
           <!--営業ログイン時-->
           <% elsif sale_signed_in? %>
+            <li class="nav-item"><%= link_to '通知', sale_notifications_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item text-secondary nav-link">|</li>
+            <li class="nav-item"><%= link_to 'プロフィール', sale_profiles_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item text-secondary nav-link">|</li>
+            <li class="nav-item"><%= link_to 'ログアウト', destroy_sale_session_path, class: 'nav-link text-secondary' %></li>
           <!--ログアウト時-->
           <% else %>
-            <li class="nav-item"><%= link_to 'About', about_path, class: 'nav-link text-dark' %></li>
-            <li class="nav-item text-dark nav-link">|</li>
-            <li class="nav-item"><%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-dark' %></li>
-            <li class="nav-item text-dark nav-link">|</li>
-            <li class="nav-item"><%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-dark' %></li>
+            <li class="nav-item"><%= link_to 'About', about_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item text-secondary nav-link">|</li>
+            <li class="nav-item"><%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item text-secondary nav-link">|</li>
+            <li class="nav-item"><%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-secondary' %></li>
           <% end %>
         </ul>
     </div>

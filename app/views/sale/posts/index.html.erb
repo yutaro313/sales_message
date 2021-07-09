@@ -1,0 +1,10 @@
+<% @post.each do |post| %>
+<div>
+  <%= attachment_image_tag post_image, :post_image %>
+  <!--営業のプロフィールから画像を持ってくる-->
+  <p>タイトル：<%= post.post_title %></p>
+  <p>説明：<%= post.instroduction %></p>
+  <p>営業名：<%= post.sale.profile.name %></p>
+  <!--???-->
+</div>
+<% end %>

@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
   }
 
+  devise_scope :customer do
+    get '/customers/sign_out' => 'devise/sessions#destroy'
+  end
+
   root to: "customer/homes#top"
   get "/about" => "customer/homes#about"
 
@@ -20,11 +24,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
     resource :profiles, only: [:show]
     resources :plans
+    resources :notifications, only: [:index]
     resources :posts, only: [:index] do
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
-    resources :notifications, only: [:index]
   end
 
   namespace :sale do
