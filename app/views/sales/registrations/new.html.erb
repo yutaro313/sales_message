@@ -5,6 +5,37 @@
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "sales/shared/error_messages", resource: resource %>
+        <!--Profileモデルへの保存-->
+        <%= f.fields_for :profile do |f| %>
+          <div class="field">
+            <%= f.label :プロフィール画像 %><br />
+            <%= f.attachment_field :profile_image %>
+          </div>
+          <div class="field">
+            <%= f.label :名前 %><br />
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.label :出身地 %><br />
+            <%= f.text_field :birthplace %>
+          </div>
+          <div class="field">
+            <%= f.label :趣味 %><br />
+            <%= f.text_field :hobby %>
+          </div>
+          <div class="field">
+            <%= f.label :最近の出来事 %><br />
+            <%= f.text_field :recent_event %>
+          </div>
+          <div class="field">
+            <%= f.label :一言 %><br />
+            <%= f.text_field :a_word %>
+          </div>
+          <div class="field">
+            <%= f.label :電話番号 %><br />
+            <%= f.text_field :phone_number %>
+          </div>
+        <% end %>
 
         <div class="field">
           <%= f.label :メールアドレス %><br />

@@ -2,7 +2,8 @@ class Sale::PostsController < ApplicationController
 
   def index
     # 後でcustomerごとに表示変える(where)
-    @post = Post.all
+    @posts = Post.all
+    @sale = current_sale.profile
   end
 
   def new
@@ -17,6 +18,7 @@ class Sale::PostsController < ApplicationController
   end
 
   def show
+
   end
 
   def edit

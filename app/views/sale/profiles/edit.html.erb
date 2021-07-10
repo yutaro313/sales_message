@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <h2 class="page-header mt-4 mb-4">プロフィール編集</h2>
+    <%= form_with url: sale_profiles_path, local: true do |f| %>
+    <div class="row form-group">
+      <div class="col-3 offset-2"><%= f.label "プロフィール画像" %></div>
+      <%= f.attachment_field :profile_image, class:"col-3" %>
+    </div>
+    <div class="row form-group">
+      <div class="col-3 offset-2"><%= f.label "名前" %></div>
+      <%= f.text_field :name, class:"col-3" %>
+    </div>
+    <div class="row form-group">
+      <div class="col-3 offset-2"><%= f.label "出身地" %></div>
+      <%= f.text_field :birthplace, class:"col-3" %>
+    </div>
+    <div class="row form-group">
+      <div class="col-3 offset-2"><%= f.label "趣味" %></div>
+      <%= f.text_field :hobby, class:"col-3" %>
+    </div>
+    <div class="row form-group">
+      <div class="col-3 offset-2"><%= f.label "最近の出来事" %></div>
+      <%= f.text_field :recent_event, class:"col-3" %>
+    </div>
+    <div class="row form-group">
+      <div class="col-3 offset-2"><%= f.label "一言" %></div>
+      <%= f.text_field :a_word, class:"col-3" %>
+    </div>
+    <div class="row form-group">
+      <div class="col-3 offset-2"><%= f.label "電話番号" %></div>
+      <%= f.text_field :phone_number, class:"col-3" %>
+    </div>
+    <!--<div class="row form-group">-->
+    <!--  <%#= f.fields_for :sales do |sale| %>-->
+    <!--  <div class="col-3 offset-2"><%#= f.label "メールアドレス" %></div>-->
+    <!--  <%#= f.text_field :email, class:"col-3" %>-->
+    <!--  <%# end %>-->
+    <!--</div>-->
+    <div class="row form-group">
+      <%= f.submit '更新', class:"btn btn-success col-2 offset-4" %>
+    </div>
+    <% end %>
+  </div>
+</div>

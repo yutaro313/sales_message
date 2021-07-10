@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :sales, path: 'sales', controllers: {
     sessions: 'sales/sessions',
-    passwords: 'sales/passwords'
+    passwords: 'sales/passwords',
+    registrations: 'sales/registrations'
   }
 
   devise_for :customers, path: 'customers', controllers: {
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
 
   devise_scope :customer do
     get '/customers/sign_out' => 'devise/sessions#destroy'
+  end
+
+  devise_scope :sale do
+    get '/sales/sign_out' => 'devise/sessions#destroy'
   end
 
   root to: "customer/homes#top"
@@ -33,11 +38,12 @@ Rails.application.routes.draw do
 
   namespace :sale do
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :messages, only: [:index, :create]
     resources :plans
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
     end
-    resource :profiles, only: [:show, :edit, :update]
+    resource :profiles, only: [:show, :create, :edit, :update]
     resources :notifications, only: [:index]
   end
 

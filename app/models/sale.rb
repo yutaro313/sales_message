@@ -7,4 +7,10 @@ class Sale < ApplicationRecord
 
   has_many :post, dependent: :destroy
   has_many :post_comment, dependent: :destroy
+
+  has_one :profile
+  accepts_nested_attributes_for :profile
+
+
+  attachment :profile_image
 end
