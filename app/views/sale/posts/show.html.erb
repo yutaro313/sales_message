@@ -1,0 +1,31 @@
+<div class="post-body">
+  <%= attachment_image_tag @post, :post_image %>
+  <p>タイトル：<%= @post.post_title %></p>
+  <p>説明：<%= @post.introduction %></p>
+  <p>投稿者：<%= @sale.name %></p>
+  <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @post.sale == current_sale %>
+  <%= link_to "削除", sale_post_path(@post), method: :delete %>
+  <% end %>
+
+  <div class="comments">
+      <p>コメント数：<%= @post.post_comments.count %></p>
+      <% @post.post_comments.each do |post_comment| %>
+       <!--<p>プロフィール写真持ってくる</p>-->
+       <%#= 顧客か営業かの識別 %>
+       <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+       <% if post_comment.sale == current_sale %>
+       <div class="comment-delete">
+         <%= link_to "削除", sale_post_post_comment_path(post_comment.post,post_comment), method: :delete %>
+       </div>
+       <% end %>
+       <% end %>
+  </div>
+
+  <div class="new-comment">
+      <%= form_with(model:[@post,@post_comment],local:true) do |f| %>
+      <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+      <%= f.submit "送信する" %>
+      <% end %>
+  </div>
+</div>

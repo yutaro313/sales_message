@@ -1,11 +1,13 @@
 <%= link_to '新規投稿', new_sale_post_path,class: 'btn btn-outline-secondary' %>
 <% @posts.each do |post| %>
 <div>
-  <%= attachment_image_tag post_image, :post_image %>
+  <%= link_to sale_post_path(post.id) do %>
+  <%= attachment_image_tag post, :post_image %>
+  <% end %>
   <!--営業のプロフィールから画像を持ってくる-->
   <p>タイトル：<%= post.post_title %></p>
-  <p>説明：<%= post.instroduction %></p>
-  <!--<p>営業名：<%#= post.@sale.name %></p>-->
-  <!--???-->
+  <p>説明：<%= post.introduction %></p>
+  <p>投稿者：<%= @sale.name %></p>
+  <p><%= link_to "#{post.post_comment.count}コメント", sale_post_path(post.id) %></p>
 </div>
 <% end %>

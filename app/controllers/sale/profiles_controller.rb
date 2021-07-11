@@ -19,10 +19,5 @@ class Sale::ProfilesController < ApplicationController
     end
   end
 
-  private
-
-  def params_profile
-    params.require(:profile).permit(:name, :birthplace, :hobby, :recent_event, :a_word, :phone_number, :email, :profile_image)
-  end
 
 end

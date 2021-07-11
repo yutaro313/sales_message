@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :messages, only: [:index, :create]
     resources :plans
-    resources :posts do
+    resources :posts, only: [:index, :new, :create, :show, :destroy] do
       resources :post_comments, only: [:create, :destroy]
     end
     resource :profiles, only: [:show, :create, :edit, :update]

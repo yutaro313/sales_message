@@ -18,7 +18,9 @@ class Sale::PostsController < ApplicationController
   end
 
   def show
-
+    @post = Post.find(params[:id])
+    @sale = current_sale.profile
+    @post_comment = PostComment.new
   end
 
   def edit
@@ -28,6 +30,9 @@ class Sale::PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to sale_posts_path
   end
 
 

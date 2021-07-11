@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h2 class="page-header mt-4 mb-4">プロフィール編集</h2>
-    <%= form_with url: sale_profiles_path, local: true do |f| %>
+    <%= form_with model: @profile, local: true do |f| %>
     <div class="row form-group">
       <div class="col-3 offset-2"><%= f.label "プロフィール画像" %></div>
       <%= f.attachment_field :profile_image, class:"col-3" %>
