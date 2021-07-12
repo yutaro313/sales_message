@@ -5,5 +5,5 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :favorite, dependent: :destroy
-  has_many :post_comment, dependent: :destroy
+  has_many :post_user_id, class_name: 'PostComment', through: :sale
 end

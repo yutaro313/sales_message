@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resource :profiles, only: [:show]
     resources :plans
     resources :notifications, only: [:index]
-    resources :posts, only: [:index] do
+    resources :posts, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end

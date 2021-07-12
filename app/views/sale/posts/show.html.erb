@@ -9,9 +9,8 @@
   <% end %>
 
   <div class="comments">
-      <p>コメント数：<%= @post.post_comments.count %></p>
-      <% @post.post_comments.each do |post_comment| %>
-       <!--<p>プロフィール写真持ってくる</p>-->
+      <p>コメント数：<%= @post.post_comment.count %></p>
+      <% @post.post_comment.each do |post_comment| %>
        <%#= 顧客か営業かの識別 %>
        <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
        <% if post_comment.sale == current_sale %>
@@ -23,7 +22,7 @@
   </div>
 
   <div class="new-comment">
-      <%= form_with(model:[@post,@post_comment],local:true) do |f| %>
+      <%= form_with(model:[@post,@post_comment], url: sale_post_post_comments_path(@post.id), local:true) do |f| %>
       <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
       <%= f.submit "送信する" %>
       <% end %>

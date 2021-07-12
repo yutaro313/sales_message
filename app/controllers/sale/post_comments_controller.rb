@@ -16,7 +16,7 @@ class Sale::PostCommentsController < ApplicationController
   private
 
   def post_comment_params
-    params.require(:post_comment).permit(:comment, :attribute)
+    params.require(:post_comment).permit(:comment)
   end
 
 end

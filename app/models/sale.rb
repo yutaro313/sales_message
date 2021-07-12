@@ -6,7 +6,7 @@ class Sale < ApplicationRecord
 
 
   has_many :post, dependent: :destroy
-  has_many :post_comment, dependent: :destroy
+  has_many :post_user_id, class_name: 'PostComment',through: :customer
 
   has_one :profile
   accepts_nested_attributes_for :profile
