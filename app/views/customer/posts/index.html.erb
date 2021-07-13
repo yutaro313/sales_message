@@ -12,9 +12,9 @@
         </div>
         <div class="col-10">
           <p class="card-title">
-            <!--link_toでshowページに飛べるようにする-->
+            <%= link_to customer_post_path(post.id) do %>
             <strong><i class="far fa-flag"></i><span><%= post.post_title %></span></strong>
-            <!--<%# end %>-->
+            <% end %>
           </p>
           <p class="card-text">説明：<%= post.introduction %></p>
           <span><i class="fas fa-user"></i>By <%#= link_to @sale.name, customer_profiles_path(@sale) %> |</span>

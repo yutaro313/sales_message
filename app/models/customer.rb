@@ -4,6 +4,6 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :favorite, dependent: :destroy
-  has_many :post_user_id, class_name: 'PostComment', through: :sale
+  has_many :favorites, dependent: :destroy
+  has_many :post_comments, foreign_key: :post_user_id
 end
