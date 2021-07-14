@@ -37,10 +37,13 @@ Rails.application.routes.draw do
   end
 
   namespace :sale do
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      get "/post_index" => "customers#post_index", as: "post_index"
+      resources :posts, only: [:create]
+    end
     resources :messages, only: [:index, :create]
     resources :plans
-    resources :posts, only: [:index, :new, :create, :show, :destroy] do
+    resources :posts, only: [:index, :new, :show, :destroy] do
       resources :post_comments, only: [:create, :destroy]
     end
     resource :profiles, only: [:show, :create, :edit, :update]

@@ -11,10 +11,12 @@ class Sale::PostsController < ApplicationController
   end
 
   def create
+    @customer = Customer.find(params[:customer_id])
     @post = Post.new(post_params)
+    @post.customer_id = @customer.id
     @post.sale_id = current_sale.id
     @post.save
-    redirect_to sale_posts_path
+    redirect_to sale_customer_post_index_path(@customer)
   end
 
   def show

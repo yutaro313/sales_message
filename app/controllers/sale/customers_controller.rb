@@ -19,6 +19,12 @@ class Sale::CustomersController < ApplicationController
     redirect_to sale_customer_path(@customer.id)
   end
 
+  def post_index
+    @customer = Customer.find(params[:customer_id])
+    @posts = Post.where(sale_id: current_sale.id, customer_id: @customer.id)
+    @sale = current_sale.profile
+    @post = Post.new
+  end
   private
 
   def params_customer

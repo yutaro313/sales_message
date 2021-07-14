@@ -4,7 +4,7 @@
       <h5 class="text-dark bg-light p-4 mb-0">新規投稿フォーム</h5>
       <div class="form-body p-4">
         <!--エラーメッセージ-->
-        <%= form_with model: @post, url: sale_posts_path, local:true do |f| %>
+        <%= form_with model: @post, url: sale_customer_posts_path(@customer), local:true do |f| %>
         <%= f.attachment_field :post_image, class:"w-100" %>
         <div class="input-group mb-3 mt-4">
           <div class="input-group-prepend">
