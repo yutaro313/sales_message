@@ -21,7 +21,7 @@
           </p>
           <p class="card-text">説明：<%= post.introduction %></p>
           <span><i class="fas fa-user"></i>By <%= link_to @sale.name, sale_profiles_path(@sale) %> |</span>
-          <span><%= link_to "#{post.post_comment.count}コメント", sale_post_path(post.id),class:"text-dark" %></span>
+          <span><%= link_to "#{post.post_comments.count}コメント", sale_post_path(post.id),class:"text-dark" %></span>
         </div>
       </div>
     </div>

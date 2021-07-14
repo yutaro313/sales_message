@@ -14,7 +14,7 @@ class Sale::PostCommentsController < ApplicationController
 
   def destroy
     PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-    redirect_to sale_posts_path(params[:post_id])
+    redirect_to sale_post_path(params[:post_id])
   end
 
   private

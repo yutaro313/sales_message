@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">プロフィール</h5>
+      <div class="form-body p-4">
+        <!--エラーメッセージ-->
+        <div class="row">
+          <div class="profile-image">
+            <%= attachment_image_tag @profile, :profile_image, :fill, 350, 350, fallback: "no-image.jpg", size:'350x350' %>
+          </div>
+          <div class="item-introduction ml-5">
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td class="item">名前</td>
+                  <td class="item-li"><%= @profile.name %></td>
+                </tr>
+                <tr>
+                  <td class="item">出身地</td>
+                  <td class="item-li"><%= @profile.birthplace %></td>
+                </tr>
+                <tr>
+                  <td class="item">趣味</td>
+                  <td class="item-li"><%= @profile.hobby %></td>
+                </tr>
+                 <tr>
+                  <td class="item">最近の出来事</td>
+                  <td class="item-li"><%= @profile.recent_event %></td>
+                </tr>
+                 <tr>
+                  <td class="item">一言</td>
+                  <td class="item-li"><%= @profile.a_word %></td>
+                </tr>
+                 <tr>
+                  <td class="item">電話番号</td>
+                  <td class="item-li"><%= @profile.phone_number %></td>
+                </tr>
+                 <tr>
+                  <td class="item">メールアドレス</td>
+                  <td class="item-li"><%= @sale.email %></td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

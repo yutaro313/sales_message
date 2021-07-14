@@ -2,7 +2,7 @@ class Sale::PostsController < ApplicationController
 
   def index
     # 後でcustomerごとに表示変える(where)
-    @posts = Post.all
+    @posts = Post.where(params[:customer_id])
     @sale = current_sale.profile
   end
 
@@ -19,7 +19,7 @@ class Sale::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @sale = current_sale.profile
+    @sale = Profile.first
     @post_comment = PostComment.new
   end
 
@@ -39,7 +39,7 @@ class Sale::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post_title, :post_image, :introduction)
+    params.require(:post).permit(:post_title, :post_image, :introduction, :customer_id)
   end
 
 end

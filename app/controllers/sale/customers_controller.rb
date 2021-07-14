@@ -14,12 +14,16 @@ class Sale::CustomersController < ApplicationController
   end
 
   def update
+    @customer = Customer.find(params[:id])
+    @customer.update(params_customer)
+    redirect_to sale_customer_path(@customer.id)
   end
 
   private
 
-  def customer_params
+  def params_customer
     params.require(:customer).permit(:customer_detail)
+
   end
 
 end

@@ -1,12 +1,18 @@
 module ApplicationHelper
-  MODEL = %w(Sale Customer)
   def post_user_name(post_user_id, type)
-    get_name(MODEL[type], post_user_id) if (type == 0) || (type == 1)
+    if type == 0
+      get_name(Sale, post_user_id)
+    elsif type == 1
+      get_name(Customer, post_user_id)
+    else
+      "User not exit"
+    end
   end
 
   private
 
   def get_name(model, id)
-    model.constantize.find(id).name || "no name"
+    model.find(id).name || "no name"
   end
+
 end

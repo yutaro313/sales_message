@@ -13,7 +13,7 @@
           <p class="card-title">説明：<%= @post.introduction %></p>
           <span><i class="fas fa-user"></i> By <%= @sale.name %> ｜ </span>
           <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
-          <span><i class="fa fa-comment"></i> <%#= link_to "#{@post.post_comments.count}", post_image_path(@post_image.id), class:"text-dark" %> ｜ </span>
+          <span><i class="fa fa-comment"></i> <%= link_to "#{@post.post_comments.count}", sale_post_path(@post.id), class:"text-dark" %> ｜ </span>
           <!--<%# if @post_image.favorited_by?(current_user) %>-->
           <!--  <span>-->
           <!--    <%#= link_to(post_image_favorites_path(@post_image), class:"text-dark", method: :delete) do %>-->
@@ -37,13 +37,19 @@
         <h4 class="mt-3"><%= @post.post_comments.count %>件コメント</h4>
         <% @post.post_comments.each do |post_comment| %>
           <div class="media border mb-3">
-            <%#= attachment_image_tag @post, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"bd-placeholder-img align-self-center mx-3" %>
-            <%= post_user_name(post_comment.post_user_id, post_comment.action) %>
+            <% if post_comment.action == 0 %>
+              <%= attachment_image_tag @sale, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"bd-placeholder-img align-self-center mx-3" %>
+            <% else %>
+              <%= image_tag 'user.png', size: '60x60', class:"bd-placeholder-img align-self-center mx-3" %>
+            <% end %>
+            <div class="post-name my-auto">
+              <%= post_user_name(post_comment.post_user_id, post_comment.action) %>
+            </div>
             <div class="media-body ml-4 p-3">
               <p><%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %></p>
               <p><%= post_comment.comment %></p>
-              <% if @post.sale == current_sale %>
-               <%= link_to "削除", sale_post_path(@post), method: :delete, class: "btn btn-danger pull-right" %>
+              <% if post_comment.action == 0 %>
+               <%= link_to "削除", sale_post_post_comment_path(post_comment.post, post_comment), method: :delete, class: "btn btn-danger pull-right" %>
               <% end %>
             </div>
           </div>

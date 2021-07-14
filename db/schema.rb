@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_084653) do
+ActiveRecord::Schema.define(version: 2021_07_14_085311) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 2021_07_12_084653) do
     t.string "name"
     t.string "phone_number"
     t.string "company_name"
-    t.text "customer_detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "customer_detail", default: "未入力"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_084653) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "post_image_id"
+    t.integer "customer_id"
   end
 
   create_table "profiles", force: :cascade do |t|
