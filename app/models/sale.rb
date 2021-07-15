@@ -5,6 +5,16 @@ class Sale < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  has_many :post, dependent: :destroy
-  has_many :post_comment, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :post_comments, foreign_key: :post_user_id
+
+  has_one :profile
+  accepts_nested_attributes_for :profile
+
+
+  attachment :profile_image
+
+  def name
+    Profile.find_by(sale_id: self.id).name
+  end
 end

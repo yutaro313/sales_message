@@ -1,0 +1,23 @@
+<h3>新規スケジュール作成</h1>
+
+<%= form_with url: customer_plans_path, local: true do |f| %>
+
+<div class="plan-title">
+  <%= f.label :タイトル %>
+  <%= f.text_field :title %>
+</div>
+
+<div class="start-time">
+  <%= f.label :開始日時 %>
+  <%= f.datetime_select :start_date %>
+</div>
+<div class="start-time">
+  <%= f.label :終了日時 %>
+  <%= f.datetime_select :end_date %>
+</div>
+
+<div class="submit">
+  <%= f.submit '新規作成' %>
+</div>
+
+<% end %>

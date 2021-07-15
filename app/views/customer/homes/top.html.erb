@@ -1,1 +1,24 @@
-トップページ
+<div class="top-page">
+  <div class="container top-main ">
+    <div class="row">
+      <div class="mx-auto main-content">
+    <h1 class="title">Sales Message</h1>
+      </div>
+    </div>
+    <div class="row">
+      <% if customer_signed_in? %>
+      <% elsif sale_signed_in? %>
+      <% else %>
+      <div class="col-5 col-sm-5 mx-2 mx-sm-auto rounded px-0 my-4">
+        <%= link_to 'ログイン', new_customer_session_path, class: 'btn btn-lg btn-block btn-secondary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="background-image1"></div>
+  <div class="space"></div>
+  <div class="background-image2"></div>
+  <div class="space"></div>
+  <div class="background-image3"></div>
+  <div class="space"></div>
+</div>

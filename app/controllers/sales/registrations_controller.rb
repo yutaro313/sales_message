@@ -4,6 +4,18 @@ class Sales::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  # 新規登録後のページ遷移
+  def after_sign_up_path_for(resource)
+    sale_customers_path
+  end
+
+  def new
+    @sale = Sale.new
+    @profile = @sale.build_profile
+  end
+
+
+
   # GET /resource/sign_up
   # def new
   #   super
