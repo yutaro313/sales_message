@@ -3,7 +3,7 @@
     <div class="col-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">新規投稿フォーム</h5>
       <div class="form-body p-4">
-        <!--エラーメッセージ-->
+
         <%= form_with model: @post, url: sale_customer_posts_path(@customer), local:true do |f| %>
         <%= f.attachment_field :post_image, class:"w-100" %>
         <div class="input-group mb-3 mt-4">
