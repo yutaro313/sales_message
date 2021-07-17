@@ -1,7 +1,6 @@
 class Sale::PostsController < ApplicationController
 
   def index
-    # 後でcustomerごとに表示変える(where)
     @posts = Post.where(params[:customer_id])
     @sale = current_sale.profile
   end
