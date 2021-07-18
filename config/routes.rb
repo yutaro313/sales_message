@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   namespace :sale do
     resources :customers, only: [:index, :show, :edit, :update] do
       get "/post_index" => "customers#post_index", as: "post_index"
+      get "/plan_index" => "customers#plan_index", as: "plan_index"
       resources :posts, only: [:create]
     end
     resources :messages, only: [:index, :create]

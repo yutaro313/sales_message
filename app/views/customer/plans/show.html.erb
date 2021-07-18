@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">スケジュール詳細</h5>
+      <div class="item-introduction ml-5">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="item">タイトル</td>
+              <td class="item-li"><%= @plan.title %></td>
+            </tr>
+            <tr>
+              <td class="item">開始日時</td>
+              <td class="item-li"><%= @plan.start_date %></td>
+            </tr>
+            <tr>
+              <td class="item">終了日時</td>
+              <td class="item-li"><%= @plan.end_date %></td>
+            </tr>
+             <tr>
+              <td class="item">投稿者</td>
+              <td class="item-li"><%= @plan.owner.name %></td>
+            </tr>
+          </tbody>
+        </table>
+        <% if @plan.customer == current_customer %>
+        <%= link_to "削除",customer_plan_path(@plan), method: :delete, class:"btn btn-danger mb-2" %>
+      </div>
+      <%= link_to "編集する", edit_customer_plan_path(@plan), class:"btn btn-lg btn-block btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>

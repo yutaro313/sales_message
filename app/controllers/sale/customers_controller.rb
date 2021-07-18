@@ -25,7 +25,14 @@ class Sale::CustomersController < ApplicationController
     @sale = current_sale.profile
     @post = Post.new
   end
-  private
+
+  def plan_index
+    @customer = Customer.find(params[:to_id])
+    @plans = Plan.where(to_id: @customer.id)
+    @plan = Plan.new
+  end
+
+private
 
   def params_customer
     params.require(:customer).permit(:customer_detail)

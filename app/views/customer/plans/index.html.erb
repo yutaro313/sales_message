@@ -6,26 +6,28 @@
       <th class="col1">タイトル</th>
       <th class="col1">開始日時</th>
       <th class="col1">終了日時</th>
+      <th class="col1">投稿者</th>
     </tr>
   </thead>
   <tbody>
     <% @plans.each do |plan| %>
       <tr>
-        <td><%= plan.title %></td>
+        <td><%= link_to plan.title, customer_plan_path(plan) %></td>
         <td><%= plan.start_date %></td>
         <td><%= plan.end_date %></td>
+        <td><%= plan.owner.name %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <%= month_calendar plans: @plans do |date, plans| %>
-  <%= date %>
-  <% plans.each do |plan| %>
+  <%= date.day %>
+    <% plans.each do |plan| %>
     <div>
-      <%= plan.title %>
+      <%= link_to plan.title, customer_plan_path(plan) %>
     </div>
-  <% end %>
+    <% end %>
 <% end %>
 
 <%= link_to 'スケジュール追加', new_customer_plan_path, class:"btn btn-sm btn-outline-secondary" %>

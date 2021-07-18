@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">プロフィール編集</h5>
+      <div class="form-body p-4">
+        <%= form_with model: @plan, url: sale_plan_path(@plan), local: true do |f| %>
+        <div class="input-group mb-3 mt-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text" aria-hidden="true">タイトル</span>
+          </div>
+          <%= f.text_field :title %>
+        </div>
+        <div class="input-group mb-3 mt-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text" aria-hidden="true">開始日時</span>
+          </div>
+          <%= f.datetime_select :start_date %>
+        </div>
+        <div class="input-group mb-3 mt-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text" aria-hidden="true">終了日時</span>
+          </div>
+          <%= f.datetime_select :end_date %>
+        </div>
+        <hr>
+        <%= f.submit '更新', class:"btn btn-lg btn-block btn-success mt-4" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
