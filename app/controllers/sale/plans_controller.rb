@@ -1,14 +1,13 @@
 class Sale::PlansController < ApplicationController
-
   def new
     @plan = Plan.new
   end
 
   def create
-    @customer = Customer.find(params[:to_id])
-    @plan = current_sale.plans.new(plan_plan)
-    @plan.to_id = current_sale.id
-
+    @customer = Customer.find(params[:customer_id])
+    @plan = @customer.plans.build(params_plan)
+    @plan.from_id = current_sale.id
+    @plan.to_id = @customer.id
     @plan.save
     redirect_to sale_customer_plan_index_path(@customer)
 
@@ -23,22 +22,20 @@ class Sale::PlansController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:to_id])
     @plan = current_sale.plans.find(params[:id])
     @plan.update(params_plan)
-    redirect_to sale_customer_plan_index_path(@customer)
+    redirect_to sale_customer_plan_index_path(@plan.customer)
   end
 
   def destroy
-    @customer = Customer.find(params[:to_id])
-    @plans = current_customer.plans.find(params[:id])
-    @plans.destroy
-    redirect_to sale_customer_plan_index_path(@customer)
+    @plan = current_sale.plans.find(params[:id])
+    @plan.destroy
+    redirect_to sale_customer_plan_index_path(@plan.customer)
   end
 
   private
 
   def params_plan
-    params.require(:plan).permit(:title, :start_data, :end_data, :to_id)
+    params.require(:plan).permit(:title, :start_date, :end_date, :from_id)
   end
 end

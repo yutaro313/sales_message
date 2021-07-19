@@ -1,10 +1,31 @@
-<div class="container">
+<div class="container mt-3">
+  <h3>スケジュール</h3>
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th class="col1">タイトル</th>
+            <th class="col1">開始日時</th>
+            <th class="col1">終了日時</th>
+            <th class="col1">投稿者</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @plans.each do |plan| %>
+            <tr>
+              <td><%= link_to plan.title, sale_plan_path(plan) %></td>
+              <td><%= plan.start_date %></td>
+              <td><%= plan.end_date %></td>
+              <td><%= plan.owner.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
   <div class="row">
-    <div class="col-4">
-      <h5 class="text-dark bg-light p-4 mb-0">新規スケジュール作成</h5>
+    <div class="col-5">
+      <h5 class="text-dark p-4 bg-light text-center">新規スケジュール作成</h5>
       <div class="form-body p-4">
         <%= form_with model: @plan, url: sale_customer_plans_path(@customer), local: true do |f| %>
-        <div class="input-group mb-3 mt-4">
+        <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" aria-hidden="true">タイトル</span>
           </div>
@@ -27,30 +48,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-8">
-      <h1>スケジュール</h1>
-
-      <table class="table table-sm table-striped">
-        <thead>
-          <tr>
-            <th class="col1">タイトル</th>
-            <th class="col1">開始日時</th>
-            <th class="col1">終了日時</th>
-            <th class="col1">投稿者</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @plans.each do |plan| %>
-            <tr>
-              <td><%= link_to plan.title, customer_plan_path(plan) %></td>
-              <td><%= plan.start_date %></td>
-              <td><%= plan.end_date %></td>
-              <td><%= plan.owner.name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-
+    <div class="col-7">
       <%= month_calendar plans: @plans do |date, plans| %>
         <%= date.day %>
           <% plans.each do |plan| %>
@@ -59,8 +57,6 @@
           </div>
           <% end %>
       <% end %>
-
-      <%= link_to 'スケジュール追加', new_sale_plan_path, class:"btn btn-sm btn-outline-secondary" %>
     </div>
   </div>
 </div>

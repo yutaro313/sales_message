@@ -1,7 +1,8 @@
 class Customer::PlansController < ApplicationController
 
   def index
-    @plans = Plan.where(to_id: current_customer.id)
+    @sale = Sale.first
+    @plans = Plan.where(to_id: current_customer.id, from_id: @sale.id)
   end
 
   def new
@@ -9,8 +10,10 @@ class Customer::PlansController < ApplicationController
   end
 
   def create
+    @sale = Sale.first
     # 勝手にto_idも入る
     @plan = current_customer.plans.new(params_plan)
+    @plan.from_id = @sale.id
     @plan.save
     redirect_to customer_plans_path
   end

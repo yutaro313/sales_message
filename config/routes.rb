@@ -41,9 +41,10 @@ Rails.application.routes.draw do
       get "/post_index" => "customers#post_index", as: "post_index"
       get "/plan_index" => "customers#plan_index", as: "plan_index"
       resources :posts, only: [:create]
+      resources :plans, only: [:create]
     end
     resources :messages, only: [:index, :create]
-    resources :plans
+    resources :plans, only: [:new, :show, :edit, :update, :destroy]
     resources :posts, only: [:index, :new, :show, :destroy] do
       resources :post_comments, only: [:create, :destroy]
     end

@@ -27,8 +27,9 @@ class Sale::CustomersController < ApplicationController
   end
 
   def plan_index
-    @customer = Customer.find(params[:to_id])
-    @plans = Plan.where(to_id: @customer.id)
+    @customer = Customer.find(params[:customer_id])
+    @plans = Plan.where(to_id: @customer.id,  from_id: current_sale.id)
+
     @plan = Plan.new
   end
 

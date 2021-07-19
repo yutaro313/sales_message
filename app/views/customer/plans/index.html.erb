@@ -15,7 +15,11 @@
         <td><%= link_to plan.title, customer_plan_path(plan) %></td>
         <td><%= plan.start_date %></td>
         <td><%= plan.end_date %></td>
-        <td><%= plan.owner.name %></td>
+        <td>
+          <% if plan.customer == current_customer %>
+          <%= plan.customer.name %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
