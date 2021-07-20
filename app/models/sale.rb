@@ -11,6 +11,9 @@ class Sale < ApplicationRecord
   has_many :plans, foreign_key: :from_id, dependent: :destroy
   has_many :plans, foreign_key: :to_id, dependent: :destroy
 
+  has_many :messages, foreign_key: :to_id, dependent: :destroy
+  has_many :messages, foreign_key: :from_id, dependent: :destroy
+
   has_one :profile
   accepts_nested_attributes_for :profile
 

@@ -6,7 +6,7 @@
       <tr>
         <td><%= customer.id %></td>
         <td><%= link_to customer.name, sale_customer_path(customer) %></td>
-        <td><%= link_to "チャット",sale_messages_path(customer) %></td>
+        <td><%= link_to "チャット",sale_customer_message_index_path(customer) %></td>
         <td><%= link_to "カレンダー", sale_customer_plan_index_path(customer) %></tb>
         <td><%= link_to "タイムライン", sale_customer_post_index_path(customer) %></tb>
       </tr>

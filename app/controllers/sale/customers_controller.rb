@@ -33,6 +33,14 @@ class Sale::CustomersController < ApplicationController
     @plan = Plan.new
   end
 
+  def message_index
+    @customer = Customer.find(params[:customer_id])
+    @sale_profile = current_sale.profile
+    @message = Message.new
+    @messages = Message.where("(to_id = ? AND from_id = ? AND is_from_sale = 1) OR (to_id = ? AND from_id = ? AND is_from_sale = 0)",@customer.id,current_sale.id,current_sale.id,@customer.id).order("created_at ASC")
+    # 本番環境ではtrueやfalseの方が良い。今回はmysqlのため0か1で区別している
+  end
+
 private
 
   def params_customer

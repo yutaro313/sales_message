@@ -1,0 +1,10 @@
+<%= form_with model: @message, url: customer_messages_path, html: {class: "form"}, local: true do |f| %>
+<div class="form-input">
+  <%= f.text_field :content, class: 'form-message', placeholder: 'メッセージを入力してください' %>
+  <label class="form_image">
+    <span class="image-file">画像</span>
+    <%= f.file_field :image, class: 'hidden' %>
+  </label>
+</div>
+<%= f.submit '送信', class: 'from-submit' %>
+<% end %>

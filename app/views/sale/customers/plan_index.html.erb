@@ -1,25 +1,5 @@
 <div class="container mt-3">
-  <h3>スケジュール</h3>
-      <table class="table table-sm table-striped">
-        <thead>
-          <tr>
-            <th class="col1">タイトル</th>
-            <th class="col1">開始日時</th>
-            <th class="col1">終了日時</th>
-            <th class="col1">投稿者</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @plans.each do |plan| %>
-            <tr>
-              <td><%= link_to plan.title, sale_plan_path(plan) %></td>
-              <td><%= plan.start_date %></td>
-              <td><%= plan.end_date %></td>
-              <td><%= plan.owner.name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <h3 class="text-center p-4">カレンダー</h3>
   <div class="row">
     <div class="col-5">
       <h5 class="text-dark p-4 bg-light text-center">新規スケジュール作成</h5>
@@ -58,5 +38,28 @@
           <% end %>
       <% end %>
     </div>
+  </div>
+  <div class="row">
+    <h4>スケジュール一覧</h4>
+    <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th class="col1">タイトル</th>
+            <th class="col1">開始日時</th>
+            <th class="col1">終了日時</th>
+            <th class="col1">投稿者</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @plans.each do |plan| %>
+            <tr>
+              <td><%= link_to plan.title, sale_plan_path(plan) %></td>
+              <td><%= plan.start_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
+              <td><%= plan.end_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
+              <td><%= plan.owner.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
   </div>
 </div>

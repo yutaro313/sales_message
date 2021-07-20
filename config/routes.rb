@@ -40,10 +40,12 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update] do
       get "/post_index" => "customers#post_index", as: "post_index"
       get "/plan_index" => "customers#plan_index", as: "plan_index"
+      get "/message_index" => "customers#message_index", as: "message_index"
       resources :posts, only: [:create]
       resources :plans, only: [:create]
+      resources :messages, only: [:create]
     end
-    resources :messages, only: [:index, :create]
+    resources :message, only: [:index]
     resources :plans, only: [:new, :show, :edit, :update, :destroy]
     resources :posts, only: [:index, :new, :show, :destroy] do
       resources :post_comments, only: [:create, :destroy]
