@@ -4,14 +4,14 @@
     <% @messages.each do |message| %>
       <div class="upper-message">
         <div class="message-user">
-          <!--投稿したユーザー-->
+          <!--投稿ユーザー-->
           <% if !message.is_from_sale %>
             <%= current_customer.name %>
           <% else %>
             <%= @sale.name %>
           <% end %>
         </div>
-        <!--投稿した日時-->
+        <!--投稿日時-->
         <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
       </div>
       <div class="lower-message">
