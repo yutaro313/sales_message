@@ -4,6 +4,8 @@ class Message < ApplicationRecord
   belongs_to :customer, class_name: 'Customer' , foreign_key: "to_id", optional: true
   belongs_to :customer, class_name: 'Customer' , foreign_key: "from_id", optional: true
 
+  has_many :notifications, dependent: :destroy
+
   has_one_attached :image
 
   def owner

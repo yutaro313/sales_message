@@ -2,26 +2,56 @@
   <h3>Chat room</h3>
   <div class="message mb-3">
     <% @messages.each do |message| %>
-      <div class="upper-message">
-        <div class="message-user">
-          <!--投稿ユーザー-->
-          <% if message.is_from_sale %>
-            <%= current_sale.name %>
-          <% else %>
-            <%= @customer.name %>
+      <% if message.is_from_sale %>
+        <div class="upper-message small">
+          <div class="message-user">
+            <!--投稿ユーザー-->
+            <% if message.is_from_sale %>
+              <%= current_sale.name %>
+            <% else %>
+              <%= @customer.name %>
+            <% end %>
+          </div>
+        </div>
+        <div class="lower-message py-4">
+          <div class="message-content">
+            <!--投稿内容-->
+            <%= message.content %>
+          </div>
+          <% if message.image.attached? %>
+            <%= image_tag message.image, size: '300x300' %>
           <% end %>
         </div>
-        <!--投稿日時-->
-        <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-      </div>
-      <div class="lower-message">
-        <div class="message-content">
-          <%= message.content %>
+        <div class="message-time small mb-4">
+          <!--投稿日時-->
+          <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
         </div>
-        <% if message.image.attached? %>
-          <%= image_tag message.image, size: '500x500' %>
-        <% end %>
-      </div>
+      <% else %>
+        <div class="upper-message small text-right">
+          <div class="message-user">
+            <!--投稿ユーザー-->
+            <% if message.is_from_sale %>
+              <%= current_sale.name %>
+            <% else %>
+              <%= @customer.name %>
+            <% end %>
+          </div>
+        </div>
+        <div class="lower-message text-right py-4">
+          <div class="message-content">
+            <!--投稿内容-->
+            <%= message.content %>
+          </div>
+          <% if message.image.attached? %>
+            <%= image_tag message.image, size: '300x300' %>
+          <% end %>
+        </div>
+        <div class="message-time small text-right mb-4">
+          <!--投稿日時-->
+          <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+        </div>
+      <% end %>
+
     <% end %>
   </div>
   <div class="row">

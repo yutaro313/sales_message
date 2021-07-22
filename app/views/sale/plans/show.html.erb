@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light p-4 mb-0">スケジュール詳細</h5>
+      <h5 class="text-dark content-title p-4 mb-0">スケジュール詳細</h5>
       <div class="item-introduction ml-5">
         <table class="table">
           <tbody>
@@ -11,11 +11,11 @@
             </tr>
             <tr>
               <td class="item">開始日時</td>
-              <td class="item-li"><%= @plan.start_date %></td>
+              <td class="item-li"><%= @plan.start_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
             </tr>
             <tr>
               <td class="item">終了日時</td>
-              <td class="item-li"><%= @plan.end_date %></td>
+              <td class="item-li"><%= @plan.end_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
             </tr>
              <tr>
               <td class="item">投稿者</td>

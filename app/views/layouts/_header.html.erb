@@ -2,11 +2,11 @@
   <nav class="navbar navbar-expand shadow-sm">
     <div class="container">
        <% if customer_signed_in? %>
-        <a class="navbar-brand p-3 text-secondary" href="/"><%= current_customer.company_name %></a>
+        <a class="navbar-brand text-secondary" href="/"><%= image_tag('logo2.png', size: "50x50") %><%= current_customer.company_name %></a>
         <% else %>
-        <a class="navbar-brand p-3 text-secondary" href="/">Sales Message</a>
+        <a class="navbar-brand text-secondary" href="/"><%= image_tag('logo2.png', size: "50x50") %>Sales Message</a>
         <% end %>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto text-white">
           <!--お客様のログイン時-->
           <% if customer_signed_in? %>
             <li class="nav-item text-secondary nav-link">こんにちは<span><%= current_customer.name %></span>さん</li>

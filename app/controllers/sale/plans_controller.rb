@@ -18,17 +18,17 @@ class Sale::PlansController < ApplicationController
   end
 
   def edit
-    @plan = current_sale.plans.find(params[:id])
+    @plan = Plan.find(params[:id])
   end
 
   def update
-    @plan = current_sale.plans.find(params[:id])
+    @plan = Plan.find(params[:id])
     @plan.update(params_plan)
     redirect_to sale_customer_plan_index_path(@plan.customer)
   end
 
   def destroy
-    @plan = current_sale.plans.find(params[:id])
+    @plan = Plan.find(params[:id])
     @plan.destroy
     redirect_to sale_customer_plan_index_path(@plan.customer)
   end

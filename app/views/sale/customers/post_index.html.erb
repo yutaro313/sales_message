@@ -1,7 +1,7 @@
 <div class="card-list-container py-5">
-  <div class="text-center shadow-lg rounded px-0 my-5">
-    <h5 class="text-dark bg-light p-4 mb-0">新規投稿フォーム</h5>
-    <div class="form-body p-4">
+  <div class="col-6 text-center shadow-lg rounded px-0 my-5 mx-auto ">
+    <h5 class="content-title text-dark p-4 mb-0">新規投稿フォーム</h5>
+    <div class=" form-body p-4">
       <!--エラーメッセージ-->
       <%= form_with model: @post, url: sale_customer_posts_path(@customer), local:true do |f| %>
       <%= f.attachment_field :post_image, class:"w-100" %>
@@ -20,7 +20,6 @@
   <% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to sale_post_path(post.id) do %>
-    <!--画像サイズ調整後ほど-->
     <%= attachment_image_tag post, :post_image, class:"card-img-top" %>
     <% end %>
     <div class="card-body">
@@ -35,7 +34,7 @@
             <% end %>
           </p>
           <p class="card-text">説明：<%= post.introduction %></p>
-          <span><i class="fas fa-user"></i>By <%= link_to @sale.name, sale_profiles_path(@sale) %> |</span>
+          <span><i class="fas fa-user"></i>By <%= link_to @sale.name, sale_profiles_path(@sale), class:'text-secondary' %> |</span>
           <span><%= link_to "#{post.post_comments.count}コメント", sale_post_path(post.id),class:"text-dark" %></span>
         </div>
       </div>

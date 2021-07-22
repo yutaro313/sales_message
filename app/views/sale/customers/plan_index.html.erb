@@ -1,8 +1,8 @@
 <div class="container mt-3">
-  <h3 class="text-center p-4">カレンダー</h3>
+  <h3 class="content-title text-center p-4">カレンダー</h3>
   <div class="row">
     <div class="col-5">
-      <h5 class="text-dark p-4 bg-light text-center">新規スケジュール作成</h5>
+      <h5 class="text-dark p-4 text-center">新規スケジュール作成</h5>
       <div class="form-body p-4">
         <%= form_with model: @plan, url: sale_customer_plans_path(@customer), local: true do |f| %>
         <div class="input-group mb-3">
@@ -29,10 +29,13 @@
       </div>
     </div>
     <div class="col-7">
-      <%= month_calendar plans: @plans do |date, plans| %>
+      <!--simple calendarを使用する際は開始日時はstart_timeが基本のため、カスタマイズする際は下記を記載-->
+      <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @plans) do |date, plans| %>
+        <!--カレンダー内の日付-->
         <%= date.day %>
           <% plans.each do |plan| %>
           <div>
+            <!--カレンダー内の予定-->
             <%= link_to plan.title, sale_plan_path(plan) %>
           </div>
           <% end %>

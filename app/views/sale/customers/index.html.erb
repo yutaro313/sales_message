@@ -1,16 +1,20 @@
 <div class="container">
-  <h2 class="page-header mt-4 mb-4">顧客一覧</h2>
-  <table class="table table-hover orders-table">
-    <tbody>
-      <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.id %></td>
-        <td><%= link_to customer.name, sale_customer_path(customer) %></td>
-        <td><%= link_to "チャット",sale_customer_message_index_path(customer) %></td>
-        <td><%= link_to "カレンダー", sale_customer_plan_index_path(customer) %></tb>
-        <td><%= link_to "タイムライン", sale_customer_post_index_path(customer) %></tb>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row no-gutters">
+    <div class="col-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="content-title text-dark  p-4 mb-0">顧客一覧</h5>
+      <table class="table table-hover orders-table">
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td></td>
+          <td><%= link_to customer.name, sale_customer_path(customer), class:'text-info' %></td>
+          <td><%= link_to "チャット",sale_customer_message_index_path(customer), class:'text-info' %></td>
+          <td><%= link_to "カレンダー", sale_customer_plan_index_path(customer), class:'text-info' %></tb>
+          <td><%= link_to "タイムライン", sale_customer_post_index_path(customer), class:'text-info' %></tb>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
 </div>
