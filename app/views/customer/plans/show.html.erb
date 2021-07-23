@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
-      <h5 class="text-dark bg-light p-4 mb-0">スケジュール詳細</h5>
+      <h5 class="text-dark content-title p-4 mb-0">スケジュール詳細</h5>
       <div class="item-introduction ml-5">
         <table class="table">
           <tbody>
@@ -19,7 +19,13 @@
             </tr>
              <tr>
               <td class="item">投稿者</td>
-              <td class="item-li"><%= @plan.owner.name %></td>
+              <td class="item-li">
+                <% if @plan.action == 1 %>
+                  <%= @plan.owner.name %>
+                <% else %>
+                  <%= @plan.customer.name %>
+                <% end %>
+              </td>
             </tr>
           </tbody>
         </table>

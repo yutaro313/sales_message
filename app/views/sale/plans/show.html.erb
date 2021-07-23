@@ -19,7 +19,13 @@
             </tr>
              <tr>
               <td class="item">投稿者</td>
-              <td class="item-li"><%= @plan.owner.name %></td>
+              <td class="item-li">
+                <% if plan.action == 1 %>
+                  <%= plan.owner.name %>
+                <% else %>
+                  <%= plan.customer.name %>
+                <% end %>
+              </td>
             </tr>
           </tbody>
         </table>

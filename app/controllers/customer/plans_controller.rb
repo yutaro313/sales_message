@@ -14,6 +14,7 @@ class Customer::PlansController < ApplicationController
     # 勝手にto_idも入る
     @plan = current_customer.plans.new(params_plan)
     @plan.from_id = @sale.id
+    @plan.action = 0
     @plan.save
     redirect_to customer_plans_path
   end

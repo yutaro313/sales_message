@@ -59,7 +59,13 @@
               <td><%= link_to plan.title, sale_plan_path(plan) %></td>
               <td><%= plan.start_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
               <td><%= plan.end_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
-              <td><%= plan.owner.name %></td>
+              <td>
+                <% if plan.action == 1 %>
+                  <%= plan.owner.name %>
+                <% else %>
+                  <%= plan.customer.name %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>

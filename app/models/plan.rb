@@ -7,9 +7,10 @@ class Plan < ApplicationRecord
 
   # 投稿者の識別
   def owner
-    return sale.profile if sale.present?
+    return sale.profile
+    # if sale.present?
 
-    customer
+    # customer
   end
 
 end

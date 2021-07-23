@@ -1,37 +1,39 @@
-<h1>スケジュール</h1>
-
-<table class="table table-sm table-striped">
-  <thead>
-    <tr>
-      <th class="col1">タイトル</th>
-      <th class="col1">開始日時</th>
-      <th class="col1">終了日時</th>
-      <th class="col1">投稿者</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @plans.each do |plan| %>
+<div class="container">
+  <h4 class="text-dark content-title p-4 mb-0 my-3">スケジュール</h4>
+  <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @plans) do |date, plans| %>
+    <%= date.day %>
+      <% plans.each do |plan| %>
+      <div>
+        <%= link_to plan.title, customer_plan_path(plan) %>
+      </div>
+      <% end %>
+  <% end %>
+  <%= link_to 'スケジュール追加', new_customer_plan_path, class:"btn btn-sm btn-info my-4" %>
+  <table class="table table-sm table-striped">
+    <thead>
       <tr>
-        <td><%= link_to plan.title, customer_plan_path(plan) %></td>
-        <td><%= plan.start_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
-        <td><%= plan.end_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
-        <td>
-          <% if plan.customer == current_customer %>
-          <%= plan.customer.name %>
-          <% end %>
-        </td>
+        <th class="col1">タイトル</th>
+        <th class="col1">開始日時</th>
+        <th class="col1">終了日時</th>
+        <th class="col1">投稿者</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @plans.each do |plan| %>
+        <tr>
+          <td><%= link_to plan.title, customer_plan_path(plan) %></td>
+          <td><%= plan.start_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
+          <td><%= plan.end_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
+          <td>
+            <% if plan.action == 1 %>
+              <%= plan.owner.name %>
+            <% else %>
+              <%= plan.customer.name %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= month_calendar plans: @plans do |date, plans| %>
-  <%= date.day %>
-    <% plans.each do |plan| %>
-    <div>
-      <%= link_to plan.title, customer_plan_path(plan) %>
-    </div>
-    <% end %>
-<% end %>
-
-<%= link_to 'スケジュール追加', new_customer_plan_path, class:"btn btn-sm btn-outline-secondary" %>

@@ -8,6 +8,7 @@ class Sale::PlansController < ApplicationController
     @plan = @customer.plans.build(params_plan)
     @plan.from_id = current_sale.id
     @plan.to_id = @customer.id
+    @plan.action = 1
     @plan.save
     redirect_to sale_customer_plan_index_path(@customer)
 
