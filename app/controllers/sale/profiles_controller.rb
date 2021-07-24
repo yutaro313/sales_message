@@ -1,4 +1,5 @@
 class Sale::ProfilesController < ApplicationController
+  before_action :authenticate_sale!
 
   def show
     @profile = current_sale.profile

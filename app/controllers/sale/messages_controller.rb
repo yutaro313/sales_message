@@ -1,4 +1,5 @@
 class Sale::MessagesController < ApplicationController
+  before_action :authenticate_sale!
 
   def create
     @customer = Customer.find(params[:customer_id])

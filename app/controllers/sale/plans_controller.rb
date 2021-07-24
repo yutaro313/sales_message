@@ -1,4 +1,6 @@
 class Sale::PlansController < ApplicationController
+  before_action :authenticate_sale!
+
   def new
     @plan = Plan.new
   end

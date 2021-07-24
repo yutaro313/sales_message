@@ -36,3 +36,13 @@ input[type="password"] {
 body {
   background-color: #bce2e8;
 }
+
+.float {
+  display: inline-block;
+	transition: all .3s ease 0s;
+	text-decoration: none;
+}
+.float :hover {
+  cursor: pointer;
+	transform: scale(1.2);
+}

@@ -1,8 +1,8 @@
 class Customer::ProfilesController < ApplicationController
+  before_action :authenticate_customer!
 
   def show
-    # 後で1にする
-    @profile = Profile.find(2)
-    @sale = Sale.find(2)
+    @profile = Profile.first
+    @sale = Sale.first
   end
 end

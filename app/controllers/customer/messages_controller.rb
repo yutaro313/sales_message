@@ -1,12 +1,11 @@
 class Customer::MessagesController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @sale = Sale.first
     @sale_profile = @sale.profile
     @message = Message.new
     @messages = Message.where("(to_id = ? AND from_id = ? AND is_from_sale=1) OR (to_id = ? AND from_id = ? AND is_from_sale=0)",current_customer.id,@sale.id,@sale.id,current_customer.id).order("created_at ASC")
-    puts '----------'
-    puts Message.where("(to_id = ? AND from_id = ? AND is_from_sale=1) OR (to_id = ? AND from_id = ? AND is_from_sale=0)",current_customer.id,@sale.id,@sale.id,current_customer.id).order("created_at ASC").to_sql
   end
 
   def create

@@ -1,4 +1,5 @@
 class Sale::PostsController < ApplicationController
+  before_action :authenticate_sale!
 
   def index
     @posts = Post.where(params[:customer_id])

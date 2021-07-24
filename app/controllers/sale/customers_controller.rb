@@ -1,4 +1,5 @@
 class Sale::CustomersController < ApplicationController
+  before_action :authenticate_sale!
 
 
   def index
