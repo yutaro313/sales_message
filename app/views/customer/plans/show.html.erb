@@ -29,7 +29,7 @@
             </tr>
           </tbody>
         </table>
-        <% if @plan.customer == current_customer %>
+        <% if @plan.action != 1 %>
         <%= link_to "削除",customer_plan_path(@plan), method: :delete, class:"btn btn-danger mb-2" %>
       </div>
       <%= link_to "編集する", edit_customer_plan_path(@plan), class:"btn btn-lg btn-block btn-primary" %>

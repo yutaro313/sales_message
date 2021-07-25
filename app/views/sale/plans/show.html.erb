@@ -20,16 +20,16 @@
              <tr>
               <td class="item">投稿者</td>
               <td class="item-li">
-                <% if plan.action == 1 %>
-                  <%= plan.owner.name %>
+                <% if @plan.action == 1 %>
+                  <%= @plan.owner.name %>
                 <% else %>
-                  <%= plan.customer.name %>
+                  <%= @plan.customer.name %>
                 <% end %>
               </td>
             </tr>
           </tbody>
         </table>
-        <% if @plan.sale == current_sale %>
+        <% if @plan.action == 1 %>
         <%= link_to "削除",sale_plan_path(@plan), method: :delete, class:"btn btn-danger mb-2" %>
       </div>
       <%= link_to "編集する", edit_sale_plan_path(@plan), class:"btn btn-lg btn-block btn-primary" %>

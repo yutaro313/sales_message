@@ -34,7 +34,7 @@ input[type="password"] {
   background-color: #67b5b7;
 }
 body {
-  background-color: #bce2e8;
+  background-color: #eaf6fd;
 }
 
 .float {
@@ -45,4 +45,16 @@ body {
 .float :hover {
   cursor: pointer;
 	transform: scale(1.2);
+}
+.notifications {
+  color: $white;
+  text-align: center;
+
+  .notice {
+    background-color: lightBlue;
+  }
+
+  .alert {
+    background-color: red;
+  }
 }

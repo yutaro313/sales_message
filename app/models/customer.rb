@@ -11,4 +11,8 @@ class Customer < ApplicationRecord
   has_many :plans, foreign_key: :to_id, dependent: :destroy
   has_many :messages, foreign_key: :to_id, dependent: :destroy
   has_many :messages, foreign_key: :from_id, dependent: :destroy
+  
+  # バリデーション
+  validates :phone_number, :email, :company_name, presence: true
+  validates :phone_number, numericality: { only_integer: true }
 end

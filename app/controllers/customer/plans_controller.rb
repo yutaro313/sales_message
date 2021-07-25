@@ -16,8 +16,13 @@ class Customer::PlansController < ApplicationController
     @plan = current_customer.plans.new(params_plan)
     @plan.from_id = @sale.id
     @plan.action = 0
-    @plan.save
-    redirect_to customer_plans_path
+    if @plan.save
+      flash[:notice] = "スケジュールを登録しました"
+      redirect_to customer_plans_path
+    else
+      flash.now[:alert] = "入力不足があります"
+      render :new
+    end
   end
 
   def show
@@ -31,12 +36,14 @@ class Customer::PlansController < ApplicationController
   def update
     @plan = current_customer.plans.find(params[:id])
     @plan.update(params_plan)
+    flash[:success] = "スケジュールを変更しました"
     redirect_to customer_plans_path
   end
 
   def destroy
     @plans = current_customer.plans.find(params[:id])
     @plans.destroy
+    flash[:success] = "スケジュールを削除しました"
     redirect_to customer_plans_path
   end
 

@@ -11,7 +11,7 @@
           <% if customer_signed_in? %>
             <li class="nav-item text-secondary nav-link">こんにちは<span><%= current_customer.name %></span>さん</li>
             <li class="nav-item text-secondary nav-link">　　</li>
-            <li class="nav-item float font-weight-bold"><%= link_to '通知', customer_notifications_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to '担当プロフィール', customer_profiles_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
             <li class="nav-item float font-weight-bold"><%= link_to 'チャット', customer_messages_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
@@ -23,8 +23,6 @@
           <!--営業ログイン時-->
           <% elsif sale_signed_in? %>
             <li class="nav-item float font-weight-bold"><%= link_to '顧客一覧', sale_customers_path, class: 'nav-link text-secondary' %></li>
-            <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to '通知', sale_notifications_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
             <li class="nav-item float font-weight-bold"><%= link_to 'プロフィール', sale_profiles_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>

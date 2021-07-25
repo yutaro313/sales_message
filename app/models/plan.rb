@@ -8,9 +8,8 @@ class Plan < ApplicationRecord
   # 投稿者の識別
   def owner
     return sale.profile
-    # if sale.present?
-
-    # customer
   end
 
+  # バリデーション
+  validates :title, :start_date, :end_date, presence: true
 end

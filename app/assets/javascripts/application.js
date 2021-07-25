@@ -27,3 +27,11 @@ $(function() {
   });
 });
 
+$(function() {
+  $('#down a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop: $(document).height()
+    }, 800);
+    event.preventDefault();
+  });
+});

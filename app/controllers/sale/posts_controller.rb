@@ -15,8 +15,13 @@ class Sale::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = @customer.id
     @post.sale_id = current_sale.id
-    @post.save
-    redirect_to sale_customer_post_index_path(@customer)
+    if @post.save
+      flash[:notice] = "投稿されました"
+      redirect_to sale_customer_post_index_path(@customer)
+    else
+      flash[:alert] = "入力不足があります"
+      redirect_to sale_customer_post_index_path(@customer)
+    end
   end
 
   def show
@@ -34,6 +39,7 @@ class Sale::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:success] = "投稿を削除しました"
     redirect_to sale_posts_path
   end
 

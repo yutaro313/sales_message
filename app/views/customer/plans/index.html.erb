@@ -1,10 +1,15 @@
 <div class="container">
-  <h4 class="text-dark content-title p-4 mb-0 my-3">スケジュール</h4>
+  <h4 class="text-dark content-title p-4 mb-0 my-3">カレンダー</h4>
   <%= month_calendar(attribute: :start_date, end_attribute: :end_date, events: @plans) do |date, plans| %>
     <%= date.day %>
       <% plans.each do |plan| %>
       <div>
-        <%= link_to plan.title, customer_plan_path(plan) %>
+        <!--カレンダー内の予定　営業と顧客で色識別-->
+        <% if plan.action == 1 %>
+          <%= link_to plan.title, customer_plan_path(plan), class:'text-danger' %>
+        <% else %>
+          <%= link_to plan.title, customer_plan_path(plan), class:'text-info' %>
+        <% end %>
       </div>
       <% end %>
   <% end %>

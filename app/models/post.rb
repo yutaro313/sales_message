@@ -13,4 +13,7 @@ class Post < ApplicationRecord
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
   end
+
+  validates :post_title, :introduction, presence: true
+
 end

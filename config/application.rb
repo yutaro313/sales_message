@@ -14,6 +14,12 @@ module SalesMessage
     config.time_zone = 'Tokyo'
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
     # ↑この記述をするとバリデーションでのビュー崩れが防げる
+    module ChatSpace
+      class Application < Rails::Application
+        config.i18n.default_locale = :ja
+      end
+    end
+    # devise日本語化
 
 
     # Settings in config/environments/* take precedence over those specified here.

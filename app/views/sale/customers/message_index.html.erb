@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 class="text-dark content-title p-4 mb-0 my-3">Chat room</h3>
+  <h3 class="text-dark content-title p-4 mb-0 my-3">チャットルーム</h3>
   <div class="message mb-3">
     <% @messages.each do |message| %>
       <% if message.is_from_sale %>
@@ -57,4 +57,9 @@
   <div class="row">
     <%= render 'sale/messages/form', messages: @messages %>
   </div>
+  <span id="down">
+    <a href="">
+      <%= image_tag asset_path('arrow-down.png'), data: {"turbolinks"=>false}, class: "arrow-down" %>
+    </a>
+  </span>
 </div>

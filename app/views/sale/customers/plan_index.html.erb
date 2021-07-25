@@ -35,8 +35,12 @@
         <%= date.day %>
           <% plans.each do |plan| %>
           <div>
-            <!--カレンダー内の予定-->
-            <%= link_to plan.title, sale_plan_path(plan) %>
+            <!--カレンダー内の予定　営業と顧客で色識別-->
+            <% if plan.action == 1 %>
+              <%= link_to plan.title, sale_plan_path(plan), class:'text-danger' %>
+            <% else %>
+              <%= link_to plan.title, sale_plan_path(plan), class:'text-info' %>
+            <% end %>
           </div>
           <% end %>
       <% end %>

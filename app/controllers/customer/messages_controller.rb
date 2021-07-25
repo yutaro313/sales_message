@@ -14,8 +14,13 @@ class Customer::MessagesController < ApplicationController
     @message.from_id = current_customer.id
     @message.to_id = @sale.id
     @message.is_from_sale = false
-    @message.save
-    redirect_to customer_messages_path
+    if @message.save
+      flash[:notice] = "メッセージが送信されました"
+      redirect_to customer_messages_path
+    else
+      flash[:alert] = "メッセージを入力してください"
+      redirect_to customer_messages_path
+    end
   end
 
   private

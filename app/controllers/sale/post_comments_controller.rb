@@ -7,8 +7,10 @@ class Sale::PostCommentsController < ApplicationController
     @post_comment.post_id = params[:post_id]
     @post_comment.action = 0
     if @post_comment.save!
+      flash[:notice] = "投稿にコメントしました"
       redirect_to sale_post_path(post)
     else
+      flash[:alert] = "コメントを入力してください"
       redirect_to sale_post_path(post)
     end
   end
