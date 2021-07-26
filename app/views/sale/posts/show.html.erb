@@ -30,7 +30,11 @@
               <%= image_tag 'user.png', size: '60x60', class:"bd-placeholder-img align-self-center mx-3" %>
             <% end %>
             <div class="post-name my-auto">
-              <%= post_user_name(post_comment.post_user_id, post_comment.action) %>
+              <% if post_comment.action == 0 %>
+                <%= @sale.name %>
+              <% else %>
+                <%= @post_customer.name %>
+              <% end %>
             </div>
             <div class="media-body ml-4 p-3">
               <p><%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %></p>
@@ -49,6 +53,9 @@
             <label for="exampleFormControlTextarea1">コメントする</label>
             <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
           </div>
+          <!--<%#= f.hidden_field :post_id, :value => @post.id %>-->
+          <!--<%#= f.hidden_field :post_user_id, :value => current_sale.id %>-->
+          <!--<%#= f.hidden_field :action, :value => 0 %>-->
           <%= f.submit "送信する", class:"btn btn-lg btn-info mt-2 float-right" %>
         <% end %>
       </div>

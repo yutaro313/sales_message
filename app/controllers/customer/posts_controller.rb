@@ -8,6 +8,7 @@ class Customer::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_customer = @post.customer
     @sale = Profile.first
     @post_comment = PostComment.new
   end

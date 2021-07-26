@@ -31,15 +31,19 @@ class Sale::PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-    @plan.update(params_plan)
-    flash[:success] = "スケジュールへ変更しました"
-    redirect_to sale_customer_plan_index_path(@plan.customer)
+    if @plan.update(params_plan)
+      flash[:notice] = "スケジュールへ変更しました"
+      redirect_to sale_customer_plan_index_path(@plan.customer)
+    else
+      flash[:alert] = "入力不足があります"
+      redirect_to sale_customer_plan_index_path(@plan.customer)
+    end
   end
 
   def destroy
     @plan = Plan.find(params[:id])
     @plan.destroy
-    flash[:success] = "スケジュールを削除しました"
+    flash[:notice] = "スケジュールを削除しました"
     redirect_to sale_customer_plan_index_path(@plan.customer)
   end
 
