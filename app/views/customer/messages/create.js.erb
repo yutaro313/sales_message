@@ -1,0 +1,4 @@
+$(".message_index").html("<%= j(render 'customer/messages/index', messages: @messages, sale: @sale) %>");
+$(".message_area").html("<%= j(render 'customer/messages/form', message: @message) %>");
+$("textfield").val('');
+$("filefield").val('');

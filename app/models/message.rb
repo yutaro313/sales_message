@@ -12,6 +12,4 @@ class Message < ApplicationRecord
     customer
   end
 
-  validates :content, presence: true
-
 end

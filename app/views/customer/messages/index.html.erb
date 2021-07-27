@@ -1,60 +1,8 @@
 <div class="container">
   <h3  class="text-dark content-title p-4 mb-0 my-3">チャットルーム</h3>
-  <div class="message mb-3">
-    <% @messages.each do |message| %>
-      <% if message.is_from_sale %>
-        <div class="upper-message small text-right font-weight-bold">
-          <div class="message-user">
-            <!--投稿ユーザー-->
-            <% if !message.is_from_sale %>
-              <%= current_customer.name %>
-            <% else %>
-              <%= @sale.name %>
-            <% end %>
-          </div>
-        </div>
-        <div class="lower-message text-right py-4">
-          <div class="message-content">
-            <!--メッセージ内容-->
-            <%= message.content %>
-          </div>
-          <% if message.image.attached? %>
-            <%= image_tag message.image, size: '300x300' %>
-          <% end %>
-        </div>
-        <div class="message-time small text-right mb-4">
-          <!--送信日時-->
-          <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-        </div>
-      <% else %>
-        <div class="upper-message small font-weight-bold">
-          <div class="message-user">
-            <!--投稿ユーザー-->
-            <% if !message.is_from_sale %>
-              <%= current_customer.name %>
-            <% else %>
-              <%= @sale.name %>
-            <% end %>
-          </div>
-        </div>
-        <div class="lower-message py-4">
-          <div class="message-content">
-            <!--メッセージ内容-->
-            <%= message.content %>
-          </div>
-          <% if message.image.attached? %>
-            <%= image_tag message.image, size: '300x300' %>
-          <% end %>
-        </div>
-        <div class="message-time small mb-4">
-          <!--送信日時-->
-          <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render 'customer/messages/index', messages: @messages, sale: @sale %>
   <div class="row">
-    <%= render 'customer/messages/form', messages: @messages %>
+    <%= render 'customer/messages/form', message: @message %>
   </div>
   <span id="down">
     <a href="">

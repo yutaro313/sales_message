@@ -1,0 +1,3 @@
+$(".comments_area").html("<%= j(render 'customer/post_comments/index', post: @post, sale: @sale, post_customer: @post_customer) %>");
+$("#comment_count_area").html("<%= j(render 'customer/post_comments/comment_count', post: @post) %>");
+$("textarea").val('');

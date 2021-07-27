@@ -7,3 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # conding: utf-8
+
+ sale = Sale.create!(
+  email: ENV["SALE_EMAIL"],
+  password: ENV["SALE_PASSWORD"],
+  password_confirmation: ENV["SALE_PASSWORD"]
+)
+
+profile = sale.build_profile({
+  name: '未入力',
+  birthplace: '未入力',
+  hobby: '未入力',
+  recent_event: '未入力',
+  a_word: '未入力',
+  phone_number: '未入力',
+  # profile_image: File.open('./app/assets/images/no_image.jpg')
+
+})
+profile.save!
