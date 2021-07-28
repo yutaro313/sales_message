@@ -66,14 +66,6 @@ ActiveRecord::Schema.define(version: 2021_07_26_061228) do
     t.boolean "is_from_sale"
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.integer "seq_id"
-    t.integer "action"
-    t.boolean "checked", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "plans", force: :cascade do |t|
     t.integer "from_id"
     t.integer "to_id"

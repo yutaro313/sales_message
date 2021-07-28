@@ -73,6 +73,7 @@ gem 'simple_calendar','~>2.0'
 gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'dotenv-rails'
+
 group :production do
   gem 'mysql2'
 end
