@@ -1,4 +1,3 @@
-<!--いいね-->
 <% if post.favorited_by?(current_customer) %>
   <span>
     <%= link_to(customer_post_favorites_path(post), method: :delete, remote: true, class:"text-dark") do %>
