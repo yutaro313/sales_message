@@ -7,7 +7,7 @@
         <a class="navbar-brand text-secondary" href="/"><%= image_tag('logo2.png', size: "50x50") %><strong>Sales Message</strong></a>
         <% end %>
         <ul class="navbar-nav ml-auto text-white">
-          <!--お客様のログイン時-->
+          <!--お客様ログイン時-->
           <% if customer_signed_in? %>
             <li class="nav-item text-secondary nav-link">こんにちは<span><%= current_customer.name %></span>さん</li>
             <li class="nav-item text-secondary nav-link">　　</li>
