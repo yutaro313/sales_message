@@ -12,6 +12,12 @@
         </div>
         <div class="input-group mb-3 mt-4">
           <div class="input-group-prepend">
+            <span class="input-group-text" aria-hidden="true">内容</span>
+          </div>
+          <%= f.text_field :introduction %>
+        </div>
+        <div class="input-group mb-3 mt-4">
+          <div class="input-group-prepend">
             <span class="input-group-text" aria-hidden="true">開始日時</span>
           </div>
           <%= f.datetime_select :start_date %>
