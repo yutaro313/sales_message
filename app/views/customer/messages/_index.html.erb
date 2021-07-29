@@ -17,7 +17,7 @@
             <%= message.content %>
           </div>
           <% if message.image.attached? %>
-            <%= image_tag message.image, size: '300x300' %>
+            <%= image_tag message.image, class: 'sized' %>
           <% end %>
         </div>
         <div class="message-time small text-right mb-4">
@@ -41,7 +41,7 @@
             <%= message.content %>
           </div>
           <% if message.image.attached? %>
-            <%= image_tag message.image, size: '300x300' %>
+            <%= image_tag message.image, class: 'sized' %>
           <% end %>
         </div>
         <div class="message-time small mb-4">
