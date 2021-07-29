@@ -7,10 +7,13 @@ class Customer::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
     @post_customer = @post.customer
     @sale = Profile.first
     @post_comment = PostComment.new
+    if @post == nil
+      redirect_to action: 'index'
+    end
   end
 
 end

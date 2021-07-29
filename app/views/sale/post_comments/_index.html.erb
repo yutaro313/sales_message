@@ -3,9 +3,9 @@
   <% @post.post_comments.each do |post_comment| %>
     <div class="media border mb-3">
       <% if post_comment.action == 0 %>
-        <%= attachment_image_tag sale, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"bd-placeholder-img align-self-center mx-3" %>
+        <%= attachment_image_tag sale, :profile_image, fallback: "no-image.jpg", class:"bd-placeholder-img align-self-center mx-3", size: "50x50" %>
       <% else %>
-        <%= image_tag 'user.png', size: '60x60', class:"bd-placeholder-img align-self-center mx-3" %>
+        <%= image_tag 'user.png', size: '50x50', class:"bd-placeholder-img align-self-center mx-3" %>
       <% end %>
       <div class="post-name my-auto">
         <% if post_comment.action == 0 %>

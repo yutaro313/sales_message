@@ -26,11 +26,18 @@ class Customer::PlansController < ApplicationController
   end
 
   def show
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by(id: params[:id])
+    if @plan == nil
+      redirect_to action: 'index'
+    end
   end
 
   def edit
-    @plan = current_customer.plans.find(params[:id])
+    @plan = current_customer.plans.find_by(id: params[:id])
+    # 例外処理
+    if @plan == nil
+      redirect_to action: 'index'
+    end
   end
 
   def update

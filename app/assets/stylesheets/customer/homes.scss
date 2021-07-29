@@ -7,7 +7,7 @@
   background-image: image-url('mobile.PNG');
   background-size: cover;
   background-position: center;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 .title {
@@ -49,6 +49,7 @@
   background-position: center;
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 .space {
   height: 50px;
@@ -63,6 +64,7 @@
   text-align: center;
   line-height: 100px;
   text-decoration: none;
+  margin-top: 28px;
 }
 .circle :hover {
   opacity: 0.7;

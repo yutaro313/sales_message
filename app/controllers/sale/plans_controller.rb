@@ -22,11 +22,18 @@ class Sale::PlansController < ApplicationController
   end
 
   def show
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by(id: params[:id])
+    # 例外処理　メンターさんに質問
+    # if @plan == nil
+    #   redirect_to action: sale_customer_plan_index_path(@plan)
+    # end
   end
 
   def edit
     @plan = Plan.find(params[:id])
+    # if @plan == nil
+    #   redirect_to action: sale_customer_plan_index_path(@customer)
+    # end
   end
 
   def update
