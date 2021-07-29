@@ -6,7 +6,7 @@
         <!--エラーメッセージ-->
         <div class="row">
           <div class="profile-image">
-            <%= attachment_image_tag @profile, :profile_image, :fill, 350, 350, fallback: "no-image.jpg", size:'350x350' %>
+            <%= attachment_image_tag @profile, :profile_image, fallback: "no-image.jpg", size:'350x350' %>
           </div>
           <div class="item-introduction ml-5">
             <table class="table table-borderless">
