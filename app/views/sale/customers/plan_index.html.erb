@@ -19,6 +19,33 @@
       <% end %>
     </div>
   </div>
+  <div class="col-7 text-center mx-auto">
+    <h5 class="text-dark content-title p-4 text-center">新規スケジュール作成</h5>
+    <div class="form-body p-4">
+      <%= form_with model: @plan, url: sale_customer_plans_path(@customer), local: true do |f| %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" aria-hidden="true">タイトル</span>
+        </div>
+        <%= f.text_field :title %>
+      </div>
+      <div class="input-group mb-3 mt-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text" aria-hidden="true">開始日時</span>
+        </div>
+        <%= f.datetime_select :start_date %>
+      </div>
+      <div class="input-group mb-3 mt-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text" aria-hidden="true">終了日時</span>
+        </div>
+        <%= f.datetime_select :end_date %>
+      </div>
+      <hr>
+      <%= f.submit '新規作成', class:"btn btn-lg btn-block btn-success mt-4" %>
+      <% end %>
+    </div>
+  </div>
   <div class="row">
     <h4>スケジュール一覧</h4>
     <table class="table table-sm table-striped">
@@ -47,32 +74,5 @@
           <% end %>
         </tbody>
       </table>
-  </div>
-  <div class="col-7 text-center mx-auto">
-    <h5 class="text-dark content-title p-4 text-center">新規スケジュール作成</h5>
-    <div class="form-body p-4">
-      <%= form_with model: @plan, url: sale_customer_plans_path(@customer), local: true do |f| %>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" aria-hidden="true">タイトル</span>
-        </div>
-        <%= f.text_field :title %>
-      </div>
-      <div class="input-group mb-3 mt-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text" aria-hidden="true">開始日時</span>
-        </div>
-        <%= f.datetime_select :start_date %>
-      </div>
-      <div class="input-group mb-3 mt-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text" aria-hidden="true">終了日時</span>
-        </div>
-        <%= f.datetime_select :end_date %>
-      </div>
-      <hr>
-      <%= f.submit '新規作成', class:"btn btn-lg btn-block btn-success mt-4" %>
-      <% end %>
-    </div>
   </div>
 </div>
