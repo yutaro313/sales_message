@@ -29,6 +29,12 @@
         </div>
         <%= f.text_field :title %>
       </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" aria-hidden="true">内容</span>
+        </div>
+        <%= f.text_field :introduction %>
+      </div>
       <div class="input-group mb-3 mt-4">
         <div class="input-group-prepend">
           <span class="input-group-text" aria-hidden="true">開始日時</span>
@@ -52,6 +58,7 @@
         <thead>
           <tr>
             <th class="col1">タイトル</th>
+            <th class="col1">内容</th>
             <th class="col1">開始日時</th>
             <th class="col1">終了日時</th>
             <th class="col1">投稿者</th>
@@ -61,6 +68,11 @@
           <% @plans.each do |plan| %>
             <tr>
               <td><%= link_to plan.title, sale_plan_path(plan) %></td>
+              <% if plan.action == 1 %>
+                <td><%= plan.introduction %></td>
+              <% else %>
+              <td>　</td>
+              <% end %>
               <td><%= plan.start_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
               <td><%= plan.end_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
               <td>

@@ -57,6 +57,6 @@ class Sale::PlansController < ApplicationController
   private
 
   def params_plan
-    params.require(:plan).permit(:title, :start_date, :end_date, :from_id)
+    params.require(:plan).permit(:title, :start_date, :end_date, :from_id, :introduction)
   end
 end

@@ -9,6 +9,12 @@
               <td class="item">タイトル</td>
               <td class="item-li"><%= @plan.title %></td>
             </tr>
+            <% if @plan.action == 1 %>
+              <tr>
+                <td class="item">内容</td>
+                <td class="item-li"><%= @plan.introduction %></td>
+              </tr>
+            <% end %>
             <tr>
               <td class="item">開始日時</td>
               <td class="item-li"><%= @plan.start_date.strftime('%Y/%m/%d %H:%M:%S') %></td>
