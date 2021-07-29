@@ -19,7 +19,7 @@ class Sale::PostsController < ApplicationController
       flash[:notice] = "投稿されました"
       redirect_to sale_customer_post_index_path(@customer)
     else
-      flash[:alert] = "入力不足があります"
+      flash[:alert] = "エラー発生しました"
       redirect_to sale_customer_post_index_path(@customer)
     end
   end

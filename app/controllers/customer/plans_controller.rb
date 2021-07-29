@@ -3,7 +3,7 @@ class Customer::PlansController < ApplicationController
 
   def index
     @sale = Sale.first
-    @plans = Plan.where(to_id: current_customer.id, from_id: @sale.id)
+    @plans = Plan.where(to_id: current_customer.id, from_id: @sale.id).order("created_at DESC")
   end
 
   def new

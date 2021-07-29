@@ -6,6 +6,9 @@ class Message < ApplicationRecord
 
   has_one_attached :image
 
+  validates :content, length: { maximum: 30 }
+
+
   def owner
     return sale.profile if sale.present?
 

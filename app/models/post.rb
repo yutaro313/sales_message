@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   # optionalはnilでも有効にする
   belongs_to :sale
 
-  attachment :post_image
+  attachment :post_image, content_type: ["post_image/jpeg", "post_image/png"]
 
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?

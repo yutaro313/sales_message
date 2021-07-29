@@ -30,7 +30,7 @@ class Sale::CustomersController < ApplicationController
 
   def plan_index
     @customer = Customer.find(params[:customer_id])
-    @plans = Plan.where(to_id: @customer.id,  from_id: current_sale.id)
+    @plans = Plan.where(to_id: @customer.id,  from_id: current_sale.id).order("created_at DESC")
     @sale = current_sale.profile
     @plan = Plan.new
   end
