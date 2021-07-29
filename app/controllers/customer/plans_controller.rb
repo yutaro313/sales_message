@@ -43,14 +43,14 @@ class Customer::PlansController < ApplicationController
   def update
     @plan = current_customer.plans.find(params[:id])
     @plan.update(params_plan)
-    flash[:success] = "スケジュールを変更しました"
+    flash[:notice] = "スケジュールを変更しました"
     redirect_to customer_plans_path
   end
 
   def destroy
     @plans = current_customer.plans.find(params[:id])
     @plans.destroy
-    flash[:success] = "スケジュールを削除しました"
+    flash[:notice] = "スケジュールを削除しました"
     redirect_to customer_plans_path
   end
 

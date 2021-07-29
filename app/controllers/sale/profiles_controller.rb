@@ -14,7 +14,7 @@ class Sale::ProfilesController < ApplicationController
   def update
     @profile = current_sale.profile
     if @profile.update(profile_params)
-      flash[:success] = "プロフィールを変更しました"
+      flash[:notice] = "プロフィールを変更しました"
       redirect_to sale_profiles_path
     else
       flash.now[:alert] = "入力不足があります"

@@ -17,7 +17,7 @@ class Sale::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(params_customer)
-    flash[:success] = "プロフィールを編集しました"
+    flash[:notice] = "プロフィールを編集しました"
     redirect_to sale_customer_path(@customer.id)
   end
 
