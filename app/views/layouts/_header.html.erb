@@ -11,29 +11,29 @@
           <% if customer_signed_in? %>
             <li class="nav-item text-secondary nav-link">こんにちは<span><%= current_customer.name %></span>さん</li>
             <li class="nav-item text-secondary nav-link">　　</li>
-            <li class="nav-item float font-weight-bold"><%= link_to '担当プロフィール', customer_profiles_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Plofile', customer_profiles_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to 'チャット', customer_messages_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Message', customer_messages_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to 'カレンダー', customer_plans_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Calendar', customer_plans_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to 'タイムライン', customer_posts_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Post', customer_posts_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to 'ログアウト', destroy_customer_session_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Logout', destroy_customer_session_path, class: 'nav-link text-secondary' %></li>
           <!--営業ログイン時-->
           <% elsif sale_signed_in? %>
-            <li class="nav-item float font-weight-bold"><%= link_to '顧客一覧', sale_customers_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Customer', sale_customers_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to 'プロフィール', sale_profiles_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Profile', sale_profiles_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to 'ログアウト', destroy_sale_session_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Logout', destroy_sale_session_path, class: 'nav-link text-secondary' %></li>
           <!--ログアウト時-->
           <% else %>
             <li class="nav-item float font-weight-bold"><%= link_to 'About', about_path, class: 'nav-link text-secondary' %></li>
             <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-secondary', data: {"turbolinks" => false} %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Sign Up', new_customer_registration_path, class: 'nav-link text-secondary', data: {"turbolinks" => false} %></li>
             <li class="nav-item text-secondary nav-link">|</li>
-            <li class="nav-item float font-weight-bold"><%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-secondary' %></li>
+            <li class="nav-item float font-weight-bold"><%= link_to 'Login', new_customer_session_path, class: 'nav-link text-secondary' %></li>
           <% end %>
         </ul>
     </div>
