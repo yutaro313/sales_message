@@ -15,4 +15,5 @@ class Customer < ApplicationRecord
   # バリデーション
   validates :phone_number, :email, :company_name, presence: true
   validates :phone_number, numericality: { only_integer: true }
+  validates :customer_detail, length: { maximum: 255 }
 end
