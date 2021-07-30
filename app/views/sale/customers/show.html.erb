@@ -3,7 +3,11 @@
     <div class="col-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="content-title text-dark p-4 mb-0">顧客詳細</h5>
       <div class="customer-detail-body p-4">
-        <p><%= @customer.customer_detail %></p>
+        <% if @customer.customer_detail == nil %>
+        <p>未入力</p>
+        <% else %>
+          <p><%= @customer.customer_detail %></p>
+        <% end %>
       </div>
       <%= link_to "編集する", edit_sale_customer_path(@customer), class:"btn btn-lg btn-block btn-primary" %>
     </div>

@@ -53,5 +53,6 @@ Rails.application.routes.draw do
     resource :profiles, only: [:show, :create, :edit, :update]
     resources :notifications, only: [:index]
   end
+  get 'sale/customer/:id/plans/:id/customer/:customer_id' => 'sale/plans#show', as: "plan_show"
 
 end

@@ -1,10 +1,6 @@
 class Sale::PlansController < ApplicationController
   before_action :authenticate_sale!
 
-  def new
-    @plan = Plan.new
-  end
-
   def create
     @customer = Customer.find(params[:customer_id])
     @plan = @customer.plans.build(params_plan)
@@ -23,17 +19,10 @@ class Sale::PlansController < ApplicationController
 
   def show
     @plan = Plan.find_by(id: params[:id])
-    # 例外処理　メンターさんに質問
-    # if @plan == nil
-    #   redirect_to action: sale_customer_plan_index_path(@plan)
-    # end
   end
 
   def edit
     @plan = Plan.find(params[:id])
-    # if @plan == nil
-    #   redirect_to action: sale_customer_plan_index_path(@customer)
-    # end
   end
 
   def update

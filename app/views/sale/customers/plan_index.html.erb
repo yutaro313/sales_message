@@ -67,7 +67,7 @@
         <tbody>
           <% @plans.each do |plan| %>
             <tr>
-              <td><%= link_to plan.title, sale_plan_path(plan) %></td>
+              <td><%= link_to plan.title, plan_show_path(id: plan.id, customer_id: @customer.id) %></td>
               <% if plan.action == 1 %>
                 <td><%= plan.introduction %></td>
               <% else %>
