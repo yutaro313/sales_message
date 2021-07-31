@@ -5,8 +5,7 @@ class Message < ApplicationRecord
   belongs_to :customer, class_name: 'Customer' , foreign_key: "from_id", optional: true
 
   has_one_attached :image
-
-  validates :content, length: { maximum: 30 }
+  validates :title, :introduction, length: { maximum: 200 }
 
 
   def owner

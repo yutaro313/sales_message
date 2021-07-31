@@ -10,5 +10,5 @@ class Plan < ApplicationRecord
 
   # バリデーション
   validates :title, :start_date, :end_date, presence: true
-  validates :title, :introduction, length: { maximum: 20 }
+  validates :title, :introduction, length: { maximum: 40 }
 end
