@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   belongs_to :customer, optional: true
-  # optionalはnilでも有効にする
+  # optionalは空白(nil)でも有効にする
   belongs_to :sale
 
   attachment :post_image
