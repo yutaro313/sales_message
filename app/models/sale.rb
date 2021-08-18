@@ -17,7 +17,7 @@ class Sale < ApplicationRecord
 
   has_one :profile
   accepts_nested_attributes_for :profile
-  # 子モデルも一緒に保存する
+  # 子モデルも一緒に保存
 
 
 
